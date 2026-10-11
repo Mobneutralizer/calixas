@@ -1,0 +1,682 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101216">
+
+    <title>Calixas — Two States. One Future?</title>
+    <meta name="description"
+          content="Exploring the case for bringing California and Texas together through shared interests, economic cooperation, and a bold new vision.">
+
+    <link rel="icon" href="/favicon.png" type="image/png">
+
+    <style>
+        :root {
+            --bg: #101216;
+            --surface: #181b21;
+            --surface-light: #20242c;
+            --text: #f1f3f5;
+            --muted: #a5abb5;
+            --red: #f05252;
+            --blue: #65a9ff;
+            --border: #303640;
+            --max-width: 1080px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 85px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+            line-height: 1.7;
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            width: min(100% - 40px, var(--max-width));
+            margin-inline: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: rgba(16, 18, 22, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            color: var(--text);
+            font-size: 1.35rem;
+            font-weight: 850;
+            letter-spacing: -0.06em;
+        }
+
+        .brand span:first-child {
+            color: var(--red);
+        }
+
+        .brand span:last-child {
+            color: var(--blue);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 115px 0 105px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 440px;
+            height: 440px;
+            right: -160px;
+            top: -140px;
+            border-radius: 50%;
+            background: var(--blue);
+            opacity: 0.07;
+            filter: blur(70px);
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            max-width: 850px;
+            margin: 22px 0;
+            font-size: clamp(3rem, 8vw, 6.4rem);
+            line-height: 0.99;
+            letter-spacing: -0.075em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(100deg, var(--red), #e6e7eb 50%, var(--blue));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            max-width: 670px;
+            color: var(--muted);
+            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+        }
+
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .button {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 46px;
+            padding: 10px 19px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            font-weight: 700;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .button-primary {
+            color: #101216;
+            background: var(--text);
+            border-color: var(--text);
+        }
+
+        .button-secondary {
+            color: var(--text);
+            background: transparent;
+        }
+
+        section {
+            padding: 85px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin-bottom: 38px;
+        }
+
+        .section-heading h2 {
+            margin: 10px 0 12px;
+            font-size: clamp(2rem, 5vw, 3.4rem);
+            line-height: 1.1;
+            letter-spacing: -0.055em;
+        }
+
+        .section-heading p,
+        .card p,
+        .prose p {
+            color: var(--muted);
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .card {
+            padding: 27px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .card-number {
+            display: block;
+            margin-bottom: 18px;
+            color: var(--blue);
+            font-family: monospace;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .card p + p {
+            margin-top: 12px;
+        }
+
+        .callout {
+            margin-top: 26px;
+            padding: 24px;
+            border-left: 3px solid var(--red);
+            background: var(--surface);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .callout p {
+            color: var(--muted);
+        }
+
+        .callout strong {
+            color: var(--text);
+        }
+
+        .prose {
+            max-width: 790px;
+        }
+
+        .prose h3 {
+            margin: 30px 0 8px;
+            font-size: 1.35rem;
+        }
+
+        .prose p + p {
+            margin-top: 14px;
+        }
+
+        .prose ul {
+            margin: 12px 0 0 22px;
+            color: var(--muted);
+        }
+
+        .prose li {
+            margin-bottom: 8px;
+        }
+
+        .source-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .source {
+            padding: 18px 20px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+
+        .source h3 {
+            margin-bottom: 4px;
+            font-size: 1rem;
+        }
+
+        .source p {
+            color: var(--muted);
+            font-size: 0.92rem;
+        }
+
+        .source a {
+            overflow-wrap: anywhere;
+        }
+
+        .disclaimer {
+            margin-top: 25px;
+            padding: 17px;
+            color: var(--muted);
+            font-size: 0.88rem;
+            background: var(--surface);
+            border-radius: 8px;
+        }
+
+        footer {
+            padding: 30px 0;
+            color: var(--muted);
+            font-size: 0.88rem;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-content a {
+            color: var(--text);
+        }
+
+        @media (max-width: 650px) {
+            .container {
+                width: min(100% - 30px, var(--max-width));
+            }
+
+            nav {
+                padding: 14px 0;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            section {
+                padding: 62px 0;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="container" aria-label="Main navigation">
+            <a class="brand" href="#home" aria-label="Calixas home">
+                <span>CAL</span><span>IXAS</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#proposal">The Proposal</a>
+                <a href="#case">The Case</a>
+                <a href="#objections">Objections</a>
+                <a href="#sources">Sources</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <p class="eyebrow">An idea worth examining</p>
+
+                <h1>
+                    Two states.<br>
+                    <span class="gradient-text">One future?</span>
+                </h1>
+
+                <p class="hero-description">
+                    California and Texas are two of America's largest,
+                    most influential states. What if, instead of treating
+                    their differences as a permanent barrier, we explored
+                    what bringing them together could accomplish?
+                </p>
+
+                <div class="buttons">
+                    <a class="button button-primary" href="#proposal">
+                        Explore the proposal
+                    </a>
+                    <a class="button button-secondary" href="#objections">
+                        Examine the objections
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="proposal">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">01 / The proposal</p>
+                    <h2>What is Calixas?</h2>
+                    <p>
+                        Calixas is a proposal to explore the potential
+                        unification of California and Texas into a single
+                        state. It asks whether their combined resources,
+                        industries, and populations could create advantages
+                        that neither state could achieve as effectively alone.
+                    </p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <span class="card-number">01 — CALIFORNIA</span>
+                        <h3>Technology, trade, and agriculture</h3>
+                        <p>
+                            California has major technology and entertainment
+                            industries, Pacific ports, agricultural production,
+                            research institutions, and a large economy.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">02 — TEXAS</span>
+                        <h3>Energy, industry, and infrastructure</h3>
+                        <p>
+                            Texas has substantial energy production,
+                            manufacturing, agricultural activity, industrial
+                            infrastructure, and important Gulf Coast ports.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="callout">
+                    <p>
+                        <strong>The central question:</strong> Could these
+                        different economic strengths be combined in a way
+                        that produces shared benefits while respecting the
+                        people, cultures, and political differences of both
+                        states?
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="case">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">02 / The argument</p>
+                    <h2>Why consider it?</h2>
+                    <p>
+                        A serious case for Calixas should focus on specific,
+                        testable benefits rather than simply assuming that
+                        bigger automatically means better.
+                    </p>
+                </div>
+
+                <div class="cards">
+                    <article class="card">
+                        <span class="card-number">01</span>
+                        <h3>A broader economic base</h3>
+                        <p>
+                            A combined state would encompass major technology,
+                            energy, manufacturing, agriculture, logistics,
+                            and entertainment sectors. Research could examine
+                            whether better coordination would increase
+                            productivity and economic resilience.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">02</span>
+                        <h3>Energy and technology</h3>
+                        <p>
+                            Texas energy infrastructure and California
+                            technology and research capabilities could create
+                            opportunities for joint investment in grid
+                            modernization, energy storage, and industrial
+                            innovation.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">03</span>
+                        <h3>Agriculture and water</h3>
+                        <p>
+                            Both states have important agricultural regions
+                            and significant water-management challenges.
+                            Shared research and coordinated planning could be
+                            investigated, although geography means a merger
+                            would not automatically solve water shortages.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">04</span>
+                        <h3>Trade and infrastructure</h3>
+                        <p>
+                            Pacific and Gulf Coast connections, major
+                            freight networks, airports, railways, and
+                            highways could offer opportunities for coordinated
+                            infrastructure planning and supply-chain investment.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="objections">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">03 / The hard questions</p>
+                    <h2>What could go wrong?</h2>
+                    <p>
+                        A proposal this ambitious deserves scrutiny.
+                        These are substantial challenges, not footnotes.
+                    </p>
+                </div>
+
+                <div class="prose">
+                    <h3>Political differences</h3>
+                    <p>
+                        California and Texas have different political
+                        cultures, policy priorities, and electorates.
+                        Combining them would not erase those differences.
+                        A workable proposal would need to explain how
+                        representation, local autonomy, and policy disputes
+                        would be handled.
+                    </p>
+
+                    <h3>Constitutional and legal barriers</h3>
+                    <p>
+                        A merger would raise major questions under federal
+                        and state law, including congressional representation,
+                        state constitutions, and the process for obtaining
+                        public and governmental approval. The constitutional
+                        route would require detailed legal analysis rather
+                        than an assumption that two states can simply vote
+                        themselves into one.
+                    </p>
+
+                    <h3>Geography and administration</h3>
+                    <p>
+                        The two states are separated by substantial distances.
+                        A combined government would have to consider the
+                        location of institutions, regional representation,
+                        transportation, service delivery, and administrative
+                        costs.
+                    </p>
+
+                    <h3>Who actually benefits?</h3>
+                    <p>
+                        A larger economy does not guarantee that its benefits
+                        reach everyone. Any serious study should estimate
+                        transition costs, distributional effects, tax
+                        consequences, and impacts on rural and urban
+                        communities in both states.
+                    </p>
+
+                    <h3>Could cooperation achieve the same goals?</h3>
+                    <p>
+                        Interstate agreements, joint infrastructure projects,
+                        research partnerships, and coordinated energy
+                        initiatives might capture some potential benefits
+                        without requiring a complete merger. Calixas should
+                        be compared against these alternatives.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="sources">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">04 / Do your homework</p>
+                    <h2>Sources and further reading</h2>
+                    <p>
+                        The claims on this site should be supported by
+                        verifiable data. These official resources are
+                        starting points for researching the proposal.
+                    </p>
+                </div>
+
+                <div class="source-list">
+                    <article class="source">
+                        <h3>U.S. Bureau of Economic Analysis</h3>
+                        <p>
+                            State GDP, industry composition, and regional
+                            economic statistics.
+                        </p>
+                        <a href="https://www.bea.gov/data/gdp/gdp-state"
+                           target="_blank" rel="noopener noreferrer">
+                            bea.gov — GDP by State
+                        </a>
+                    </article>
+
+                    <article class="source">
+                        <h3>U.S. Census Bureau</h3>
+                        <p>
+                            Population, demographic characteristics, and
+                            state-level data.
+                        </p>
+                        <a href="https://www.census.gov/"
+                           target="_blank" rel="noopener noreferrer">
+                            census.gov
+                        </a>
+                    </article>
+
+                    <article class="source">
+                        <h3>U.S. Energy Information Administration</h3>
+                        <p>
+                            Energy production, consumption, electricity,
+                            and state energy profiles.
+                        </p>
+                        <a href="https://www.eia.gov/state/"
+                           target="_blank" rel="noopener noreferrer">
+                            eia.gov — State Energy Profiles
+                        </a>
+                    </article>
+
+                    <article class="source">
+                        <h3>U.S. Constitution — Article IV</h3>
+                        <p>
+                            The constitutional framework governing states
+                            and the admission of new states. A merger would
+                            require careful legal analysis of the applicable
+                            provisions and process.
+                        </p>
+                        <a href="https://constitution.congress.gov/"
+                           target="_blank" rel="noopener noreferrer">
+                            constitution.congress.gov
+                        </a>
+                    </article>
+                </div>
+
+                <div class="disclaimer">
+                    <strong>Research note:</strong>
+                    This page introduces a proposal for discussion.
+                    It does not establish that a merger would be economically
+                    beneficial or legally straightforward. Specific claims
+                    should be accompanied by dated statistics, citations,
+                    and transparent calculations as the project develops.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <span>Calixas — Two States. One Future?</span>
+            <span>
+                An independent project by
+                <a href="https://mobneutralizer.com">mobneutralizer</a>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
+```
