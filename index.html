@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,23 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#101216">
 
-    <title>Calixas — Two States. One Future?</title>
+    <title>CALIXAS — TWO STATES. ONE DESTINY.</title>
     <meta name="description"
-          content="Exploring the case for bringing California and Texas together through shared interests, economic cooperation, and a bold new vision.">
+          content="California and Texas belong in one future. Two states. One union. One Calixas. The movement for the unification of California and Texas.">
 
     <link rel="icon" href="/favicon.png" type="image/png">
 
     <style>
         :root {
-            --bg: #101216;
-            --surface: #181b21;
-            --surface-light: #20242c;
-            --text: #f1f3f5;
-            --muted: #a5abb5;
-            --red: #f05252;
-            --blue: #65a9ff;
-            --border: #303640;
-            --max-width: 1080px;
+            --bg: #08090c;
+            --surface: #11141a;
+            --surface-light: #1a1e26;
+            --text: #f5f5f7;
+            --muted: #a8adb9;
+            --red: #ff343f;
+            --blue: #559dff;
+            --gold: #f2c75c;
+            --border: #343945;
+            --max-width: 1120px;
         }
 
         * {
@@ -32,7 +34,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 85px;
+            scroll-padding-top: 90px;
         }
 
         body {
@@ -40,7 +42,7 @@
             color: var(--text);
             font-family: system-ui, -apple-system, BlinkMacSystemFont,
                          "Segoe UI", sans-serif;
-            line-height: 1.7;
+            line-height: 1.75;
         }
 
         a {
@@ -52,6 +54,11 @@
             text-decoration: underline;
         }
 
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
         .container {
             width: min(100% - 40px, var(--max-width));
             margin-inline: auto;
@@ -60,14 +67,14 @@
         header {
             position: sticky;
             top: 0;
-            z-index: 10;
-            background: rgba(16, 18, 22, 0.94);
-            backdrop-filter: blur(12px);
+            z-index: 100;
+            background: rgba(8, 9, 12, 0.96);
+            backdrop-filter: blur(16px);
             border-bottom: 1px solid var(--border);
         }
 
         nav {
-            min-height: 72px;
+            min-height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -76,9 +83,10 @@
 
         .brand {
             color: var(--text);
-            font-size: 1.35rem;
-            font-weight: 850;
-            letter-spacing: -0.06em;
+            font-size: 1.5rem;
+            font-weight: 950;
+            letter-spacing: -0.075em;
+            white-space: nowrap;
         }
 
         .brand span:first-child {
@@ -91,82 +99,110 @@
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 22px;
             flex-wrap: wrap;
         }
 
         .nav-links a {
             color: var(--muted);
-            font-size: 0.9rem;
+            font-size: 0.84rem;
+            font-weight: 750;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
         }
 
         .hero {
             position: relative;
+            isolation: isolate;
             overflow: hidden;
-            padding: 115px 0 105px;
+            padding: 125px 0 115px;
             border-bottom: 1px solid var(--border);
+            background:
+                radial-gradient(ellipse at 0% 100%,
+                    rgba(255, 52, 63, 0.13), transparent 48%),
+                radial-gradient(ellipse at 100% 0%,
+                    rgba(85, 157, 255, 0.15), transparent 45%);
         }
 
-        .hero::before {
-            content: "";
+        .hero::after {
+            content: "CA + TX";
             position: absolute;
-            width: 440px;
-            height: 440px;
-            right: -160px;
-            top: -140px;
-            border-radius: 50%;
-            background: var(--blue);
-            opacity: 0.07;
-            filter: blur(70px);
+            z-index: -1;
+            right: -20px;
+            bottom: -75px;
+            font-size: clamp(8rem, 25vw, 22rem);
+            font-weight: 1000;
+            letter-spacing: -0.12em;
+            color: rgba(255, 255, 255, 0.025);
+            white-space: nowrap;
             pointer-events: none;
         }
 
         .eyebrow {
-            color: var(--muted);
-            font-size: 0.78rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
+            color: var(--gold);
+            font-size: 0.76rem;
+            font-weight: 900;
+            letter-spacing: 0.19em;
             text-transform: uppercase;
         }
 
         h1 {
-            max-width: 850px;
-            margin: 22px 0;
-            font-size: clamp(3rem, 8vw, 6.4rem);
-            line-height: 0.99;
-            letter-spacing: -0.075em;
+            max-width: 1000px;
+            margin: 26px 0;
+            font-size: clamp(3.6rem, 10vw, 8rem);
+            line-height: 0.89;
+            letter-spacing: -0.09em;
+            font-weight: 1000;
+            text-transform: uppercase;
         }
 
         .gradient-text {
-            background: linear-gradient(100deg, var(--red), #e6e7eb 50%, var(--blue));
+            background: linear-gradient(
+                100deg,
+                var(--red),
+                #ffffff 48%,
+                var(--blue)
+            );
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
         }
 
         .hero-description {
-            max-width: 670px;
-            color: var(--muted);
-            font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+            max-width: 760px;
+            color: #d0d4de;
+            font-size: clamp(1.08rem, 2.4vw, 1.38rem);
+        }
+
+        .hero-description strong {
+            color: var(--text);
         }
 
         .buttons {
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            margin-top: 32px;
+            margin-top: 35px;
         }
 
         .button {
             display: inline-flex;
             justify-content: center;
             align-items: center;
-            min-height: 46px;
-            padding: 10px 19px;
+            min-height: 49px;
+            padding: 12px 22px;
             border: 1px solid var(--border);
-            border-radius: 7px;
-            font-weight: 700;
-            transition: transform 0.15s ease, background 0.15s ease;
+            border-radius: 5px;
+            font-weight: 850;
+            text-transform: uppercase;
+            font-size: 0.83rem;
+            letter-spacing: 0.035em;
+            transition: transform 0.15s ease,
+                        background 0.15s ease;
         }
 
         .button:hover {
@@ -175,7 +211,7 @@
         }
 
         .button-primary {
-            color: #101216;
+            color: #08090c;
             background: var(--text);
             border-color: var(--text);
         }
@@ -185,27 +221,37 @@
             background: transparent;
         }
 
+        .hero-manifesto {
+            margin-top: 42px;
+            padding-left: 18px;
+            border-left: 3px solid var(--gold);
+            color: var(--muted);
+            font-style: italic;
+            max-width: 650px;
+        }
+
         section {
-            padding: 85px 0;
+            padding: 95px 0;
             border-bottom: 1px solid var(--border);
         }
 
         .section-heading {
-            max-width: 720px;
-            margin-bottom: 38px;
+            max-width: 800px;
+            margin-bottom: 42px;
         }
 
         .section-heading h2 {
-            margin: 10px 0 12px;
-            font-size: clamp(2rem, 5vw, 3.4rem);
-            line-height: 1.1;
-            letter-spacing: -0.055em;
+            margin: 12px 0 18px;
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 0.99;
+            letter-spacing: -0.075em;
+            text-transform: uppercase;
+            font-weight: 950;
         }
 
-        .section-heading p,
-        .card p,
-        .prose p {
+        .section-heading p:last-child {
             color: var(--muted);
+            font-size: 1.08rem;
         }
 
         .cards {
@@ -215,36 +261,47 @@
         }
 
         .card {
-            padding: 27px;
-            background: var(--surface);
+            padding: 29px;
+            background: linear-gradient(
+                145deg,
+                var(--surface-light),
+                var(--surface)
+            );
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 8px;
         }
 
         .card-number {
             display: block;
             margin-bottom: 18px;
-            color: var(--blue);
+            color: var(--gold);
             font-family: monospace;
-            font-size: 0.85rem;
-            letter-spacing: 0.08em;
+            font-size: 0.84rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
         .card h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-size: 1.35rem;
+            line-height: 1.3;
+        }
+
+        .card p {
+            color: var(--muted);
         }
 
         .card p + p {
-            margin-top: 12px;
+            margin-top: 13px;
         }
 
         .callout {
-            margin-top: 26px;
-            padding: 24px;
-            border-left: 3px solid var(--red);
+            margin-top: 28px;
+            padding: 27px;
+            border-left: 4px solid var(--gold);
             background: var(--surface);
-            border-radius: 0 8px 8px 0;
+            border-radius: 0 7px 7px 0;
         }
 
         .callout p {
@@ -256,43 +313,120 @@
         }
 
         .prose {
-            max-width: 790px;
+            max-width: 850px;
         }
 
         .prose h3 {
-            margin: 30px 0 8px;
-            font-size: 1.35rem;
+            margin: 34px 0 10px;
+            font-size: 1.45rem;
+        }
+
+        .prose p {
+            color: var(--muted);
         }
 
         .prose p + p {
-            margin-top: 14px;
+            margin-top: 15px;
         }
 
         .prose ul {
-            margin: 12px 0 0 22px;
+            margin: 14px 0 0 23px;
             color: var(--muted);
         }
 
         .prose li {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+        }
+
+        .image-feature {
+            margin: 32px 0;
+            padding: 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 9px;
+        }
+
+        .image-feature img {
+            width: 100%;
+            max-height: 620px;
+            object-fit: contain;
+            background: #050609;
+            border-radius: 5px;
+        }
+
+        .image-feature figcaption {
+            padding: 17px 4px 2px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .image-feature figcaption strong {
+            color: var(--gold);
+        }
+
+        .image-pair {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin: 35px 0;
+        }
+
+        .image-pair .image-feature {
+            margin: 0;
+        }
+
+        .image-pair img {
+            height: 100%;
+            min-height: 200px;
+            max-height: 440px;
+        }
+
+        .declaration {
+            margin: 36px 0;
+            padding: 35px;
+            text-align: center;
+            background:
+                linear-gradient(110deg,
+                    rgba(255, 52, 63, 0.09),
+                    rgba(255, 255, 255, 0.025) 50%,
+                    rgba(85, 157, 255, 0.09));
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .declaration .eyebrow {
+            margin-bottom: 15px;
+        }
+
+        .declaration blockquote {
+            font-size: clamp(1.6rem, 4vw, 3rem);
+            line-height: 1.2;
+            letter-spacing: -0.045em;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .declaration p:last-child {
+            margin-top: 16px;
+            color: var(--muted);
         }
 
         .source-list {
             display: grid;
             gap: 12px;
-            margin-top: 24px;
+            margin-top: 25px;
         }
 
         .source {
-            padding: 18px 20px;
+            padding: 21px;
             background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 7px;
         }
 
         .source h3 {
-            margin-bottom: 4px;
-            font-size: 1rem;
+            margin-bottom: 5px;
+            font-size: 1.05rem;
         }
 
         .source p {
@@ -301,20 +435,23 @@
         }
 
         .source a {
+            display: inline-block;
+            margin-top: 8px;
             overflow-wrap: anywhere;
         }
 
         .disclaimer {
-            margin-top: 25px;
-            padding: 17px;
+            margin-top: 28px;
+            padding: 20px;
             color: var(--muted);
-            font-size: 0.88rem;
+            font-size: 0.87rem;
             background: var(--surface);
-            border-radius: 8px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
         }
 
         footer {
-            padding: 30px 0;
+            padding: 35px 0;
             color: var(--muted);
             font-size: 0.88rem;
         }
@@ -330,7 +467,14 @@
             color: var(--text);
         }
 
-        @media (max-width: 650px) {
+        .footer-motto {
+            color: var(--gold);
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 700px) {
             .container {
                 width: min(100% - 30px, var(--max-width));
             }
@@ -339,23 +483,37 @@
                 padding: 14px 0;
                 align-items: flex-start;
                 flex-direction: column;
-                gap: 8px;
+                gap: 12px;
             }
 
             .nav-links {
-                gap: 15px;
+                gap: 13px;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
             }
 
             .hero {
-                padding: 80px 0;
+                padding: 88px 0;
             }
 
             section {
-                padding: 62px 0;
+                padding: 65px 0;
             }
 
-            .cards {
+            .cards,
+            .image-pair {
                 grid-template-columns: 1fr;
+            }
+
+            .image-pair img {
+                height: auto;
+                min-height: 0;
+            }
+
+            .declaration {
+                padding: 26px 18px;
             }
         }
 
@@ -381,10 +539,12 @@
             </a>
 
             <div class="nav-links">
-                <a href="#proposal">The Proposal</a>
-                <a href="#case">The Case</a>
-                <a href="#objections">Objections</a>
-                <a href="#sources">Sources</a>
+                <a href="#declaration">The Creed</a>
+                <a href="#proposal">The Union</a>
+                <a href="#case">The Vision</a>
+                <a href="#objections">The Doubts</a>
+                <a href="#images">The Images</a>
+                <a href="#sources">The Record</a>
             </div>
         </nav>
     </header>
@@ -392,27 +552,122 @@
     <main>
         <section class="hero" id="home">
             <div class="container">
-                <p class="eyebrow">An idea worth examining</p>
+                <p class="eyebrow">
+                    California + Texas / The Calixas Declaration
+                </p>
 
                 <h1>
-                    Two states.<br>
-                    <span class="gradient-text">One future?</span>
+                    TWO STATES.<br>
+                    <span class="gradient-text">ONE DESTINY.</span>
                 </h1>
 
                 <p class="hero-description">
-                    California and Texas are two of America's largest,
-                    most influential states. What if, instead of treating
-                    their differences as a permanent barrier, we explored
-                    what bringing them together could accomplish?
+                    There is California. There is Texas. And then there is
+                    the future they could build together.
+                    <strong>Calixas is the conviction that these two great
+                    states should cease to imagine themselves as separate
+                    answers to America's future and begin building that
+                    future as one.</strong>
+                </p>
+
+                <p class="hero-description" style="margin-top: 18px;">
+                    Not California versus Texas. Not Texas versus California.
+                    Not an eternal argument between the Pacific and the
+                    plains. CALIFORNIA AND TEXAS, UNITED.
                 </p>
 
                 <div class="buttons">
-                    <a class="button button-primary" href="#proposal">
-                        Explore the proposal
+                    <a class="button button-primary" href="#declaration">
+                        Read the Declaration
                     </a>
-                    <a class="button button-secondary" href="#objections">
-                        Examine the objections
+                    <a class="button button-secondary" href="#images">
+                        Witness the Symbols
                     </a>
+                </div>
+
+                <p class="hero-manifesto">
+                    Remember the name. Remember the union. Remember what
+                    image1.jpeg and image2.jpeg represent. Two states may
+                    stand apart on a map. They do not have to remain apart
+                    in our imagination.
+                </p>
+            </div>
+        </section>
+
+        <section id="declaration">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">01 / The Declaration</p>
+                    <h2>We Believe in Calixas.</h2>
+                    <p>
+                        Calixas is not a passing curiosity to be mentioned
+                        once and forgotten. It is a vision to return to,
+                        examine, argue for, improve, and carry forward.
+                        California and Texas are already consequential.
+                        The question is whether their shared future can
+                        become consequential on an entirely different scale.
+                    </p>
+                </div>
+
+                <figure class="image-feature">
+                    <img
+                        src="image1.jpeg"
+                        alt="Image one, a central symbol of the Calixas movement"
+                        loading="eager"
+                    >
+                    <figcaption>
+                        <strong>IMAGE I — THE FIRST WITNESS.</strong>
+                        Return to image1.jpeg. Study image1.jpeg.
+                        Remember image1.jpeg. Let image1.jpeg remind you
+                        that Calixas begins with a vision of union.
+                        Its meaning belongs at the center of this project.
+                    </figcaption>
+                </figure>
+
+                <div class="prose">
+                    <h3>The first principle</h3>
+                    <p>
+                        California and Texas are not identical, and Calixas
+                        does not require them to be. The case for union
+                        begins precisely because each state has developed
+                        different industries, institutions, communities,
+                        and traditions. Their differences are not proof
+                        that cooperation is impossible.
+                    </p>
+
+                    <p>
+                        When someone asks why California and Texas should
+                        be considered together, return to the question
+                        that defines this movement: why should two states
+                        with so much to contribute to a shared future
+                        assume that permanent separation is the only
+                        arrangement worth considering?
+                    </p>
+
+                    <h3>The second principle</h3>
+                    <p>
+                        Calixas must be more than a name. It must be a
+                        proposal that can withstand scrutiny, a vision
+                        that can be explained, and a project that respects
+                        the people whose lives it would change.
+                        Conviction gives the project its identity.
+                        Evidence, public consent, and lawful process
+                        would determine whether it could become reality.
+                    </p>
+                </div>
+
+                <div class="declaration">
+                    <p class="eyebrow">The Calixas Creed</p>
+                    <blockquote>
+                        California and Texas.<br>
+                        Two inheritances.<br>
+                        One shared future.<br>
+                        Calixas.
+                    </blockquote>
+                    <p>
+                        Say it. Write it. Return to image1.jpeg.
+                        Return to image2.jpeg. Keep the vision in view.
+                    </p>
                 </div>
             </div>
         </section>
@@ -420,46 +675,80 @@
         <section id="proposal">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">01 / The proposal</p>
-                    <h2>What is Calixas?</h2>
+                    <p class="eyebrow">02 / The Union</p>
+                    <h2>What Is Calixas?</h2>
                     <p>
-                        Calixas is a proposal to explore the potential
-                        unification of California and Texas into a single
-                        state. It asks whether their combined resources,
-                        industries, and populations could create advantages
-                        that neither state could achieve as effectively alone.
+                        Calixas is the proposed unification of California
+                        and Texas into a single state, pursued through
+                        a lawful process and with the informed consent
+                        of the people affected. Its premise is simple:
+                        investigate what these states could achieve together
+                        that neither could achieve as effectively alone.
                     </p>
                 </div>
 
                 <div class="cards">
                     <article class="card">
-                        <span class="card-number">01 — CALIFORNIA</span>
-                        <h3>Technology, trade, and agriculture</h3>
+                        <span class="card-number">I / California</span>
+                        <h3>The Pacific Pillar</h3>
                         <p>
-                            California has major technology and entertainment
-                            industries, Pacific ports, agricultural production,
-                            research institutions, and a large economy.
+                            Technology. Entertainment. Research.
+                            Agriculture. International trade. Pacific
+                            ports. California contributes a vast collection
+                            of industries and institutions to the Calixas
+                            vision.
+                        </p>
+                        <p>
+                            In the Calixas imagination, California is not
+                            asked to disappear. It is asked to help build
+                            something larger while retaining the regional
+                            identity of its communities.
                         </p>
                     </article>
 
                     <article class="card">
-                        <span class="card-number">02 — TEXAS</span>
-                        <h3>Energy, industry, and infrastructure</h3>
+                        <span class="card-number">II / Texas</span>
+                        <h3>The Lone Star Pillar</h3>
                         <p>
-                            Texas has substantial energy production,
-                            manufacturing, agricultural activity, industrial
-                            infrastructure, and important Gulf Coast ports.
+                            Energy. Manufacturing. Agriculture.
+                            Logistics. Aerospace. Gulf Coast trade.
+                            Texas contributes its own enormous collection
+                            of industries and institutions to the same
+                            vision.
+                        </p>
+                        <p>
+                            Texas is not asked to surrender its character.
+                            It is invited into a proposal in which its
+                            future and California's future are considered
+                            part of the same undertaking.
                         </p>
                     </article>
                 </div>
 
+                <figure class="image-feature">
+                    <img
+                        src="image2.jpeg"
+                        alt="Image two, a second central symbol of Calixas"
+                        loading="lazy"
+                    >
+                    <figcaption>
+                        <strong>IMAGE II — THE SECOND WITNESS.</strong>
+                        image2.jpeg belongs beside image1.jpeg because
+                        Calixas is a union of two identities, not an
+                        erasure of either. Return to image2.jpeg when
+                        discussing what the two states might become together.
+                    </figcaption>
+                </figure>
+
                 <div class="callout">
                     <p>
-                        <strong>The central question:</strong> Could these
-                        different economic strengths be combined in a way
-                        that produces shared benefits while respecting the
-                        people, cultures, and political differences of both
-                        states?
+                        <strong>The Calixas proposition:</strong>
+                        California does not have to become Texas.
+                        Texas does not have to become California.
+                        A proposed union would need to create a shared
+                        political structure capable of respecting both.
+                        That is the challenge. That is the work.
+                        That is what the name Calixas is meant to evoke.
                     </p>
                 </div>
             </div>
@@ -468,62 +757,202 @@
         <section id="case">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">02 / The argument</p>
-                    <h2>Why consider it?</h2>
+                    <p class="eyebrow">03 / The Vision</p>
+                    <h2>Think Bigger Than the Border.</h2>
                     <p>
-                        A serious case for Calixas should focus on specific,
-                        testable benefits rather than simply assuming that
-                        bigger automatically means better.
+                        Calixas begins with a question and demands serious
+                        investigation. What happens when we consider
+                        California's and Texas's strengths as parts of
+                        one potential economic and political system?
+                        Every answer must be tested. Every opportunity
+                        deserves to be examined.
                     </p>
                 </div>
 
                 <div class="cards">
                     <article class="card">
-                        <span class="card-number">01</span>
-                        <h3>A broader economic base</h3>
+                        <span class="card-number">01 / The Economy</span>
+                        <h3>Two Economic Giants. One Conversation.</h3>
                         <p>
-                            A combined state would encompass major technology,
-                            energy, manufacturing, agriculture, logistics,
-                            and entertainment sectors. Research could examine
-                            whether better coordination would increase
-                            productivity and economic resilience.
+                            A combined state would encompass major
+                            technology, energy, manufacturing, agriculture,
+                            logistics, and entertainment sectors. Calixas
+                            calls for serious analysis of whether shared
+                            planning and investment could improve
+                            productivity and resilience.
+                        </p>
+                        <p>
+                            The point is not to chant that bigger is always
+                            better. The point is to investigate the actual
+                            advantages a union might create.
                         </p>
                     </article>
 
                     <article class="card">
-                        <span class="card-number">02</span>
-                        <h3>Energy and technology</h3>
+                        <span class="card-number">02 / Energy</span>
+                        <h3>Build What Neither Can Build Alone.</h3>
                         <p>
-                            Texas energy infrastructure and California
-                            technology and research capabilities could create
-                            opportunities for joint investment in grid
-                            modernization, energy storage, and industrial
+                            Texas's energy infrastructure and California's
+                            research and technology capabilities could
+                            provide opportunities for collaboration in
+                            grid modernization, storage, and industrial
                             innovation.
                         </p>
-                    </article>
-
-                    <article class="card">
-                        <span class="card-number">03</span>
-                        <h3>Agriculture and water</h3>
                         <p>
-                            Both states have important agricultural regions
-                            and significant water-management challenges.
-                            Shared research and coordinated planning could be
-                            investigated, although geography means a merger
-                            would not automatically solve water shortages.
+                            The Calixas question is whether those
+                            opportunities could be developed more
+                            effectively through a shared framework.
                         </p>
                     </article>
 
                     <article class="card">
-                        <span class="card-number">04</span>
-                        <h3>Trade and infrastructure</h3>
+                        <span class="card-number">03 / Agriculture</span>
+                        <h3>Common Challenges Demand Serious Planning.</h3>
                         <p>
-                            Pacific and Gulf Coast connections, major
-                            freight networks, airports, railways, and
-                            highways could offer opportunities for coordinated
-                            infrastructure planning and supply-chain investment.
+                            Both states face significant agricultural
+                            and water-management challenges. Shared
+                            research, drought planning, conservation,
+                            and infrastructure studies could form part
+                            of a Calixas agenda.
+                        </p>
+                        <p>
+                            A merger would not manufacture water or
+                            eliminate drought. It would still have to
+                            address geography, environmental limits,
+                            and competing demands.
                         </p>
                     </article>
+
+                    <article class="card">
+                        <span class="card-number">04 / Infrastructure</span>
+                        <h3>Connect the Pacific and the Gulf.</h3>
+                        <p>
+                            California's Pacific connections and Texas's
+                            Gulf Coast infrastructure sit within different
+                            regional systems. Calixas invites us to
+                            investigate coordinated freight, rail,
+                            highways, ports, airports, and supply chains.
+                        </p>
+                        <p>
+                            Two regions. Two coastlines. A shared
+                            infrastructure question.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">05 / Research</span>
+                        <h3>Innovation Without Artificial Boundaries.</h3>
+                        <p>
+                            Universities, laboratories, businesses,
+                            and public institutions could explore
+                            partnerships across the two states.
+                            Joint programs would help determine which
+                            opportunities are real before claims
+                            of transformative benefits are made.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <span class="card-number">06 / Identity</span>
+                        <h3>Different Cultures. A Shared Project.</h3>
+                        <p>
+                            Calixas does not require every Californian
+                            to think like a Texan or every Texan to think
+                            like a Californian. A credible shared identity
+                            would have to make room for disagreement,
+                            regional pride, local traditions, and
+                            different ways of life.
+                        </p>
+                    </article>
+                </div>
+
+                <div class="declaration">
+                    <p class="eyebrow">The central conviction</p>
+                    <blockquote>
+                        Stop asking whether the
+                        two states are identical.<br>
+                        Ask what they could build together.
+                    </blockquote>
+                    <p>
+                        Let that question follow every discussion
+                        of image1.jpeg, image2.jpeg, and the future
+                        Calixas proposes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="images">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">04 / The Images</p>
+                    <h2>Return to the Symbols.</h2>
+                    <p>
+                        No Calixas presentation is complete without
+                        returning to image1.jpeg and image2.jpeg.
+                        They are the two recurring visual anchors of
+                        this page. They should appear wherever the
+                        union is introduced, explained, defended,
+                        or remembered.
+                    </p>
+                </div>
+
+                <div class="image-pair">
+                    <figure class="image-feature">
+                        <img
+                            src="image1.jpeg"
+                            alt="Image one, the first recurring Calixas symbol"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>IMAGE I.</strong>
+                            image1.jpeg. The first reference point.
+                            The image to return to when explaining
+                            why Calixas exists.
+                        </figcaption>
+                    </figure>
+
+                    <figure class="image-feature">
+                        <img
+                            src="image2.jpeg"
+                            alt="Image two, the second recurring Calixas symbol"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>IMAGE II.</strong>
+                            image2.jpeg. The second reference point.
+                            The image to return to when explaining
+                            what the union could represent.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="prose">
+                    <h3>Whenever Calixas is discussed, bring the images back.</h3>
+                    <p>
+                        image1.jpeg. image2.jpeg. The names are repeated
+                        deliberately throughout this page because the
+                        images are intended to recur as recognizable
+                        symbols of the project. Their precise historical
+                        or political meaning should be explained honestly,
+                        rather than invented.
+                    </p>
+
+                    <p>
+                        Put image1.jpeg beside the founding declaration.
+                        Put image2.jpeg beside the proposal. Show both
+                        when discussing the shared future. Return to
+                        image1.jpeg when explaining the premise, and
+                        image2.jpeg when considering its implications.
+                        Make them part of the site's visual identity.
+                    </p>
+
+                    <p>
+                        The images are references, not substitutes for
+                        evidence. Whatever they depict, the economic,
+                        constitutional, and practical claims of Calixas
+                        must still stand on their own merits.
+                    </p>
                 </div>
             </div>
         </section>
@@ -531,61 +960,91 @@
         <section id="objections">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">03 / The hard questions</p>
-                    <h2>What could go wrong?</h2>
+                    <p class="eyebrow">05 / The Doubts</p>
+                    <h2>Conviction Must Face Reality.</h2>
                     <p>
-                        A proposal this ambitious deserves scrutiny.
-                        These are substantial challenges, not footnotes.
+                        Calixas is a proposal for a constitutional
+                        transformation, not a magic spell. Believing
+                        in the idea means examining the barriers that
+                        stand between the idea and reality.
                     </p>
                 </div>
 
                 <div class="prose">
-                    <h3>Political differences</h3>
+                    <h3>Political differences are real.</h3>
                     <p>
-                        California and Texas have different political
-                        cultures, policy priorities, and electorates.
-                        Combining them would not erase those differences.
-                        A workable proposal would need to explain how
-                        representation, local autonomy, and policy disputes
-                        would be handled.
+                        California and Texas have different electorates,
+                        political cultures, policy priorities, and laws.
+                        Those differences would not vanish under a
+                        common government. Any credible Calixas framework
+                        would need to explain representation, local
+                        autonomy, civil liberties, and the handling of
+                        political disputes.
                     </p>
 
-                    <h3>Constitutional and legal barriers</h3>
+                    <h3>The Constitution cannot be wished away.</h3>
                     <p>
-                        A merger would raise major questions under federal
-                        and state law, including congressional representation,
-                        state constitutions, and the process for obtaining
-                        public and governmental approval. The constitutional
-                        route would require detailed legal analysis rather
-                        than an assumption that two states can simply vote
-                        themselves into one.
+                        Combining two existing states would raise
+                        substantial constitutional and legal questions.
+                        Article IV of the U.S. Constitution contains
+                        provisions concerning state consent and
+                        congressional approval in relevant state
+                        boundary and formation situations. The precise
+                        legal process for a California–Texas merger
+                        requires qualified constitutional analysis.
+                        Calixas cannot simply assume that one vote
+                        or one executive order would settle the matter.
                     </p>
 
-                    <h3>Geography and administration</h3>
+                    <h3>Distance is not imaginary.</h3>
                     <p>
-                        The two states are separated by substantial distances.
-                        A combined government would have to consider the
-                        location of institutions, regional representation,
-                        transportation, service delivery, and administrative
-                        costs.
+                        California and Texas are separated by a vast
+                        geographic distance. Government services,
+                        representation, transportation, administration,
+                        and institutional locations would require
+                        careful design. The images may sit next to
+                        each other on this page; the states do not
+                        sit next to each other on the map.
                     </p>
 
-                    <h3>Who actually benefits?</h3>
+                    <h3>Economic benefits must be demonstrated.</h3>
                     <p>
-                        A larger economy does not guarantee that its benefits
-                        reach everyone. Any serious study should estimate
-                        transition costs, distributional effects, tax
-                        consequences, and impacts on rural and urban
-                        communities in both states.
+                        Combining two economies does not automatically
+                        create additional wealth. Calixas would need
+                        transparent estimates of transition expenses,
+                        tax changes, infrastructure costs, distributional
+                        effects, and the impact on households and
+                        businesses across both states.
                     </p>
 
-                    <h3>Could cooperation achieve the same goals?</h3>
+                    <h3>Public consent matters.</h3>
                     <p>
-                        Interstate agreements, joint infrastructure projects,
-                        research partnerships, and coordinated energy
-                        initiatives might capture some potential benefits
-                        without requiring a complete merger. Calixas should
-                        be compared against these alternatives.
+                        The people of California and Texas would have
+                        different interests, priorities, and opinions.
+                        A proposal affecting their governments must
+                        take those views seriously. The project cannot
+                        claim a mandate that its citizens have not given it.
+                    </p>
+
+                    <h3>Cooperation is the comparison we cannot ignore.</h3>
+                    <p>
+                        Interstate agreements and joint projects might
+                        accomplish some of the goals associated with
+                        Calixas without merging the states. A serious
+                        investigation must compare these alternatives
+                        rather than assume that complete political
+                        unification is necessary for every benefit.
+                    </p>
+                </div>
+
+                <div class="callout">
+                    <p>
+                        <strong>The Calixas standard:</strong>
+                        Repeat the vision. Display image1.jpeg.
+                        Display image2.jpeg. Then do the work.
+                        A belief that cannot survive honest examination
+                        is not a policy proposal. A belief that welcomes
+                        scrutiny can become the beginning of one.
                     </p>
                 </div>
             </div>
@@ -594,12 +1053,14 @@
         <section id="sources">
             <div class="container">
                 <div class="section-heading">
-                    <p class="eyebrow">04 / Do your homework</p>
-                    <h2>Sources and further reading</h2>
+                    <p class="eyebrow">06 / The Record</p>
+                    <h2>Study the Facts. Build the Case.</h2>
                     <p>
-                        The claims on this site should be supported by
-                        verifiable data. These official resources are
-                        starting points for researching the proposal.
+                        Calixas deserves more than slogans.
+                        Its supporters should know the data, understand
+                        the law, and distinguish documented facts from
+                        hopes for the future. These official resources
+                        provide a starting point.
                     </p>
                 </div>
 
@@ -607,8 +1068,10 @@
                     <article class="source">
                         <h3>U.S. Bureau of Economic Analysis</h3>
                         <p>
-                            State GDP, industry composition, and regional
-                            economic statistics.
+                            Compare state GDP, industry composition,
+                            and regional economic statistics. Any claim
+                            about a combined Calixas economy should
+                            identify its data and method.
                         </p>
                         <a href="https://www.bea.gov/data/gdp/gdp-state"
                            target="_blank" rel="noopener noreferrer">
@@ -619,8 +1082,9 @@
                     <article class="source">
                         <h3>U.S. Census Bureau</h3>
                         <p>
-                            Population, demographic characteristics, and
-                            state-level data.
+                            Examine population, demographic
+                            characteristics, and state-level data
+                            relevant to representation and public services.
                         </p>
                         <a href="https://www.census.gov/"
                            target="_blank" rel="noopener noreferrer">
@@ -631,8 +1095,9 @@
                     <article class="source">
                         <h3>U.S. Energy Information Administration</h3>
                         <p>
-                            Energy production, consumption, electricity,
-                            and state energy profiles.
+                            Examine electricity, energy production,
+                            consumption, and state energy profiles
+                            when assessing the potential for cooperation.
                         </p>
                         <a href="https://www.eia.gov/state/"
                            target="_blank" rel="noopener noreferrer">
@@ -643,10 +1108,11 @@
                     <article class="source">
                         <h3>U.S. Constitution — Article IV</h3>
                         <p>
-                            The constitutional framework governing states
-                            and the admission of new states. A merger would
-                            require careful legal analysis of the applicable
-                            provisions and process.
+                            Start researching the constitutional
+                            framework governing states, boundaries,
+                            and state formation. A proposed merger
+                            requires legal analysis specific to
+                            the arrangement being considered.
                         </p>
                         <a href="https://constitution.congress.gov/"
                            target="_blank" rel="noopener noreferrer">
@@ -656,26 +1122,89 @@
                 </div>
 
                 <div class="disclaimer">
-                    <strong>Research note:</strong>
-                    This page introduces a proposal for discussion.
-                    It does not establish that a merger would be economically
-                    beneficial or legally straightforward. Specific claims
-                    should be accompanied by dated statistics, citations,
-                    and transparent calculations as the project develops.
+                    <strong>A declaration of intent, not a declaration
+                    of completed fact.</strong>
+                    Calixas is a proposal and a political vision.
+                    The use of emphatic language on this page expresses
+                    the project's perspective; it does not establish
+                    public support, guaranteed economic benefits,
+                    or a settled legal pathway. Those questions require
+                    evidence, public debate, and lawful action.
+                </div>
+            </div>
+        </section>
+
+        <section id="closing">
+            <div class="container">
+                <div class="section-heading">
+                    <p class="eyebrow">07 / The Future</p>
+                    <h2>The Name Is Calixas.</h2>
+                    <p>
+                        California. Texas. Calixas.
+                        Three names for the central idea of this project:
+                        two states considering whether they could build
+                        a common future.
+                    </p>
+                </div>
+
+                <div class="image-pair">
+                    <figure class="image-feature">
+                        <img
+                            src="image1.jpeg"
+                            alt="Image one, returning to the first Calixas symbol"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>RETURN TO IMAGE I.</strong>
+                            Revisit the original symbol.
+                            Revisit the founding premise.
+                        </figcaption>
+                    </figure>
+
+                    <figure class="image-feature">
+                        <img
+                            src="image2.jpeg"
+                            alt="Image two, returning to the second Calixas symbol"
+                            loading="lazy"
+                        >
+                        <figcaption>
+                            <strong>RETURN TO IMAGE II.</strong>
+                            Revisit the second symbol.
+                            Revisit the proposed union.
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="declaration">
+                    <p class="eyebrow">CALIXAS</p>
+                    <blockquote>
+                        Two States.<br>
+                        One Future.<br>
+                        One Name.
+                    </blockquote>
+                    <p>
+                        California and Texas. The idea of Calixas.
+                        The work of making the case.
+                    </p>
                 </div>
             </div>
         </section>
     </main>
 
-<footer>
-    <div class="container footer-content">
-        <span>Calixas — Two States. One Future?</span>
+    <footer>
+        <div class="container footer-content">
+            <span class="footer-motto">
+                CALIXAS — TWO STATES. ONE FUTURE.
+            </span>
 
-        <span>
-            A subdomain of
-            <a href="https://mobneutralizer.com">mobneutralizer.com</a>
-        </span>
-    </div>
-</footer>
+            <span>
+                A subdomain of
+                <a href="https://mobneutralizer.com">
+                    mobneutralizer.com
+                </a>
+            </span>
+        </div>
+    </footer>
 </body>
 </html>
+```
